@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .recipe {
+        width: 60%;
+        padding: 20px;
+      }
+      
+      .recipe h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .recipe p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      
+      .image {
+        width: 40%;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .image img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .ingredients {
+        width: 100%;
+        padding: 20px;
+      }
+      
+      .ingredients h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .ingredients ul {
+        list-style-type: none;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      
+      .ingredients li {
+        margin-bottom: 5px;
+      }
+    </style>
+     <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const dishName = urlParams.get('dish');
+      const recipeText = decodeURIComponent(urlParams.get('recipe'));
+      
+      const dishElem = document.getElementById('dish');
+      dishElem.textContent = dishName;
+      
+      const recipeElem = document.getElementById('recipe');
+      recipeElem.textContent = recipeText;
+    </script>
+    
+  </head>
+  <body>
+    <div class="container">
+        <div id="wrapper">
+
+            
+      <div class="recipe">
+        <h1>Recipe Title</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod nisi vitae quam hendrerit, id tincidunt urna luctus. Morbi eu purus sit amet nulla pharetra aliquam ac eu nibh. Fusce ultrices, mi eu bibendum aliquam, justo purus convallis nunc, at bibendum turpis mi nec risus. Sed et libero a arcu commodo facilisis vel ut nulla. Nulla commodo augue ut commodo feugiat. Sed laoreet eros quis velit consectetur, id bibendum nulla ultrices. Sed et nunc ante. Nam efficitur vel risus eget sagittis. Sed eu tincidunt metus.</p>
+      </div>
+      <div class="image">
+        <img src="chole.jpg" alt="Recipe Image">
+      </div>
+      <div class="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li>Ingredient 1</li>
+          <li>Ingredient 2</li>
+          <li>Ingredient 3</li>
+          <li>Ingredient 4</li>
+          <li>Ingredient 5</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

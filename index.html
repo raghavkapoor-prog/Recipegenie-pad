@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cusine</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    
+</head>
+<body>
+    
+    <div id="wrapper">
+
+        <div class="container">
+            <div class="navbar">
+                
+                <div class="logo-container">
+                    <img src="logodatathon.png"  class="logo">
+                    <div class="logo-text"></div>
+                </div>
+               
+
+
+                <div class="nav-items">
+                    <div><a href="#projects"> Cusines </a></div>    
+                    <!-- Cusines ke bare mein explain karenge with these cards  -->
+                    <div><a href="#skills">About us</a></div>
+                    <!-- Ismein is app ke bare mein batyenge -->
+                    <div><a href="#contactme">Contact Us</a></div>
+                    <!-- Conatct the @kapoorraghav0310@gmail.com -->
+                    <div><a href="404.pptx"> PPT </a></div>
+                    <!-- here we will add the powerpoint explaination  -->
+                    <div><a href="analysis.html">Analysis</a></div>
+                    <!-- Powerbi report -->
+                </div>
+
+
+                <div id="chat-window">
+                  <div class="main-title">CHAT BOT USING CHAT-GPT</div>
+                  <div id="chat-messages"></div>
+                  <form id="chat-form">
+                    <input
+                      type="text"
+                      id="chat-input"
+                      autocomplete="off"
+                      placeholder="Type your message here"
+                      required
+                    />
+                    <button type="submit">Send</button>
+                  </form>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+                <script src="app.js"></script>
+
+            </div>
+
+            <div class="hero-section">
+
+                <div class="faded-text"></div>
+    
+                <div class="hero-section-left">
+                    <div class="hero-section-heading">🤔 Let me tell you the Recipe </div>
+                    
+                    <div class="hero-section-heading hero-section-sub-heading">
+                        I am a  <span class="role"></span>
+                    </div>
+    
+                    <div class="hero-section-description">
+                        Give me the Image I will give u recipe 😋
+                        Upload the Image in jpeg/png
+                    </div>
+                    <!-- Main button -->
+                    <label for="dish-name">Enter the name of the dish:</label>
+                    <input type="text" id="dish-name">
+                    <button id="generate-btn" onclick="generateRecipe(document.getElementById('dish-name').value)">Generate Recipe</button>
+                    
+                    <button id="upload-btn"><a href="Recipe.html">Choose Image</a></button>
+                    <input type="file" id="file-input">
+                    <script>
+                      const uploadBtn = document.getElementById('upload-btn');
+                      const fileInput = document.getElementById('file-input');
+                      
+                      uploadBtn.addEventListener('click', () => {
+                        fileInput.click();
+                      });
+                      
+                      fileInput.addEventListener('change', () => {
+                        const file = fileInput.files[0];
+                        if (file.type.match('image.*')) {
+                          const reader = new FileReader();
+                          reader.onload = () => {
+                            const imageData = reader.result;
+                            window.location.href = 'page.html?image=' + imageData;
+                          };
+                          reader.readAsDataURL(file);
+                        } else {
+                          alert('Please choose an image file.');
+                        }
+                      });
+                    </script>
+    
+                </div>
+                 <!-- ICON BAR for this  -->
+                 <div class="icon-bar">
+                  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="google"><i class="fa fa-google"></i></a>
+                  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+                </div>
+    
+                <div class="hero-section-right">
+                    <div class="absolute icons icon-dots">
+                        <img src="./images/userAsset/dots.png" alt="" />
+                      </div>
+                      <div class="absolute icons icon-cube">
+                        <img src="./images/userAsset/cube.png" alt="" />
+                      </div>
+                      <div class="absolute icons icon-circle">
+                        <img src="./images/userAsset/circle.png" alt="" />
+                      </div>
+                      <div class="absolute icons icon-zigzag">
+                        <img src="./images/userAsset/zigzags.png" alt="" />
+                      </div>
+                      <div class="absolute icons icon-plus">
+                        <img src="./images/userAsset/plus.png" alt="" />
+                      </div>
+                      <div class="user-image">
+                       
+                      </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="project-section" id="projects">
+            <h2 class="page-header">Cusines</h2>
+
+            <div class="project-container">
+                <div class="project-card" id="project1">
+                    <div class="project-number project-number-right">01</div>
+                    <div class="project-content project-content-left">
+
+                        
+
+                        <h2 class="project-heading">Dal Makhni</h2>
+
+                        <p class="project-subHeading"> A delicious avatar 
+                        </p>
+                        <div class="btn-grp">
+                           
+                            <a href="https://en.wikipedia.org/wiki/Dal_makhani#:~:text=Dal%20makhani%20(pronounced%20%5Bda%CB%90,makhan%20is%20Hindi%20for%20butter).">
+                              <button class="btn-pink btn-project">Read More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" id="project2">
+                  <div class="project-number project-number-left">02</div>
+                  <div class="project-content project-content-right">
+                    
+                    <h2 class="project-heading">Chicken Briyani </h2>
+                    <p class="project-sub-heading">
+                      a luxories navabi dish to fulfil your cravings 
+                    </p>
+                    <div class="btn-group">
+                    <a href="https://en.wikipedia.org/wiki/Biryani"><button class="btn-pink btn-project">Read More</button></a>  
+                     
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="project-card" id="project3">
+                  <div class="project-number project-number-right">03</div>
+                  <div class="project-content project-content-left">
+                   
+          
+                    <h2 class="project-heading">Chole bahature</h2>
+                    <p class="project-sub-heading">
+                     A delhi'household dish which can be taken on anytime 
+                    </p>
+                    <div class="btn-group">
+                     <a href="https://en.wikipedia.org/wiki/Chole_bhature"><button class="btn-pink btn-project">Read More</button></a> 
+                      
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="project-card" id="project4">
+                  <div class="project-number project-number-left">04</div>
+                  <div class="project-content project-content-right">
+                  
+                    <h2 class="project-heading">Rajma Chawal</h2>
+                    <p class="project-sub-heading">
+                     The love which cannot be forbidden 
+                    </p>
+                    <div class="btn-group">
+                      <a href="https://en.wikipedia.org/wiki/Rajma"><button class="btn-pink btn-project">Read More</button></a>
+                     
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+         
+        
+
+        <div class="contactus-form-container" id="contactme">
+          <div class="container">
+
+            <h1 class="contactus-heading">Contact Us</h1>
+
+            <h3 class="contactus-sub-heading">
+              Questions, thoughts, or just want to say hello?
+            </h3>
+
+
+            <div class="contactus-form-container">
+              <form class="form" action="">
+                <div class="formfield-container">
+                  <input class="formfield" 
+                  type="text" 
+                  name="name" 
+                  id="" 
+                  placeholder="Enter your name" />
+
+                  <input class="formfield" 
+                  type="email" 
+                  name="email" 
+                  id="" 
+                  placeholder="Enter your email address" />
+
+                  <input class="formfield" 
+                  type="text" 
+                  name="subject" 
+                  id="" 
+                  placeholder="Enter your subject" />
+
+                  <textarea name="message" 
+                  id="" cols="30" rows="10" 
+                  class="formfield formfield-textarea"
+                  placeholder="Enter your message"></textarea>
+
+                </div>
+                
+                <div>
+                  <button type="submit" class="btn-pink" id="submit-btn">
+                    Send Message<i class="submit-icon fa-solid fa-paper-plane"></i>
+                  </button>
+                </div>
+
+              </form>
+
+            </div>
+
+
+          </div>
+        </div>
+
+        <footer>
+          <div class="container">
+            <div class="footer-wrapper">
+              <div class="footer-faded-text">Raghav Kapoor & Arpit Singh Gautam </div>
+
+              <div class="link-wrapper">
+                <div>
+                  <a href="#projects">Cusines</a>
+                </div>
+                <div>
+                  <a href="#skills">About Us </a>
+                </div>
+                <div>
+                  <a href="#contactme">Contact Us </a>
+                </div>
+              </div>
+
+              <div class="icon-wrapper">
+                <i class="fa-brands fa-linkedin icon"></i>
+                <i class="fa-brands fa-github icon"></i>
+                <i class="fa-brands fa-twitter icon"></i>
+                <i class="fa-brands fa-instagram icon"></i>
+                <i class="fa-regular fa-envelope icon"></i>
+              </div>
+
+            </div>
+          </div>
+        </footer>
+
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+  <script>
+    var typeData = new Typed(".role", {
+      strings: [
+        "Burger 🍔",
+        "Pizza 🍕",
+        "Ice cream🍦",
+        "chocolate 🍫",
+        "Fries 🍟",
+      ],
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 80,
+      backDelay: 1000,
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        #chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+#messages {
+  height: 200px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+#input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+#send {
+  width: 80px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: #0084ff;
+  color: white;
+  cursor: pointer;
+}
+
+.user-message {
+  margin: 10px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.chatbot-message {
+  margin: 10px;
+  background-color: #0084ff;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.chatbot-message ul {
+  margin: 10px;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.chatbot-message li {
+  margin: 5px;
+}
+    </style>
+      
+</head>
+<body>
+    <div id="chatbot">
+        <div id="messages"></div>
+        <input type="text" id="input" placeholder="Type your message...">
+        <button id="send">Send</button>
+      </div>
+      
+
+
+      <script>
+        
+
+const chatbot = document.querySelector('#chatbot');
+const input = document.querySelector('#input');
+const send = document.querySelector('#send');
+const messages = document.querySelector('#messages');
+
+send.addEventListener('click', async () => {
+  const text = input.value;
+  if (text) {
+    messages.innerHTML += `<div class="user-message">${text}</div>`;
+    input.value = '';
+
+    const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_API_KEY',
+      },
+      body: JSON.stringify({
+        prompt: `Recipe and ingredients for ${text}`,
+        max_tokens: 150,
+        temperature: 0.7,
+      }),
+    });
+
+    const data = await response.json();
+    const recipe = data.choices[0].text;
+    messages.innerHTML += `
+      <div class="chatbot-message">${recipe}</div>
+      <div class="chatbot-message">Ingredients:</div>
+      <ul class="chatbot-message">
+        <li>Ingredient 1</li>
+        <li>Ingredient 2</li>
+        <li>Ingredient 3</li>
+        <!-- Add more ingredients here as needed -->
+      </ul>
+    `;
+  }
+});
+
+      <!-- </script>
+</body>
+</html> --> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+    <style>
+      body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f7efe5;
+}
+
+#chat-window {
+  width: 500px;
+  margin: 0 auto;
+  background-color: #674188;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+#chat-messages {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  height: calc(100vh - 200px);
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+}
+
+#chat-form {
+  display: flex;
+  align-items: center;
+}
+
+#chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #f7efe5;
+  color: #674188;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.bot-message {
+  font-family: "Roboto", sans-serif;
+  background-color: #fffbf5; /* different light color */
+  text-align: justify; /* keep it right-aligned */
+  padding: 15px; /* added padding */
+  margin-top: 10px; /* added margin-top to create a gap */
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+}
+
+.user-message {
+  font-family: "Nunito", sans-serif;
+  background-color: #f7efe5; /* light color */
+  text-align: left; /* changed text align to left */
+  padding: 15px; /* added padding */
+  display: flex;
+  align-items: center;
+  font-style: italic;
+}
+.user-message img,
+.bot-message img {
+  width: 40px; /* adjust the width of the icon */
+  height: 40px; /* adjust the height of the icon */
+  margin-right: 20px; /* add some margin to separate the icon from the message */
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 400px) {
+  #chat-window {
+    width: 90%;
+  }
+}
+.main-title {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 0.5rem;
+  color: #fffbf5;
+  font-style: italic;
+}
+    </style>
+  </head>
+  <body>
+    <div id="chat-window">
+      <div class="main-title">CHAT BOT USING CHAT-GPT</div>
+      <div id="chat-messages"></div>
+      <form id="chat-form">
+        <input
+          type="text"
+          id="chat-input"
+          autocomplete="off"
+          placeholder="Type your message here"
+          required
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.3/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
